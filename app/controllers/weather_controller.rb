@@ -2,7 +2,13 @@ class WeatherController < ApplicationController
 
   def current
     geocodeResponse = GeocodeService.getGeocode(current_params[:address])
-    render json: geocodeResponse
+    begin
+      lat_lng = geocodeResponse['results'][0]['geometry']['location']
+      weatherResponse = WeatherService.getCurrent(lat_lng)
+      render json: weatherResponse
+    rescue => e
+      render json: {error: "Location Invalid"}
+    end
   end
 
   private
