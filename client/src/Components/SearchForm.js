@@ -19,15 +19,17 @@ class SearchForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.handleSubmit(this.state.input);
+    this.setState({input: ""});
   }
 
   render() {
-    return <form onSubmit={this.handleSubmit}>
+    return <form onSubmit={this.handleSubmit} className="center-search">
       <label>
-        Location:
+        Enter a Location:
       </label>
-      <input type="text" value={this.state.input} onChange={this.handleInputChange}/>
-      <input type="submit" value="Find"/>
+      <input type="text" value={this.state.input} placeholder="... Maui"
+        onChange={this.handleInputChange}/>
+      <button type="submit">Find</button>
     </form>
   }
 }

@@ -3,8 +3,23 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
   padding: 20px;
-  color: white;
+  color: black;
+  font-size: 2.5em;
+}
+
+.center-search {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.center-search > * {
+  font-size: 1.75em;
+  margin: 0.1em;
+}
+
+.center-search > button {
+  border-radius: 0.2em;
+  padding: 0.1em 0.5em;
 }

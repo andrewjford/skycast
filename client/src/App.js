@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to Skycast</h2>
+          <h2>Skycast</h2>
         </div>
         <Search />
       </div>
