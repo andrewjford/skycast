@@ -1,6 +1,6 @@
 class GeocodeService
 
-  def self.getGeocode(address)
+  def self.get_geocode(address)
     url = 'https://maps.googleapis.com/maps/api/geocode/json'
 
     @resp = Faraday.get url do |req|
@@ -8,7 +8,12 @@ class GeocodeService
       req.params['address'] = address
     end
 
-    return JSON.parse(@resp.body)
+    begin
+      return JSON.parse(@resp.body)
+    rescue
+      puts @resp.reason_phrase
+      return {error: @resp.status}
+    end
   end
 
 end
