@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import SearchForm from './Components/SearchForm';
+import Search from './components/Search';
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Welcome to Skycast</h2>
         </div>
-        <SearchForm />
+        <Search />
       </div>
     );
   }
