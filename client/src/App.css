@@ -19,7 +19,9 @@
   margin: 0.1em;
 }
 
-.center-search > button {
+.center-search button {
   border-radius: 0.2em;
   padding: 0.1em 0.5em;
+  font-size: 1em;
+  margin: 0.1em;
 }

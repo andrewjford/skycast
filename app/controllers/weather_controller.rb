@@ -4,8 +4,9 @@ class WeatherController < ApplicationController
     geocodeResponse = GeocodeService.get_geocode(current_params[:address])
     begin
       lat_lng = geocodeResponse['results'][0]['geometry']['location']
+      location = geocodeResponse['results'][0]['formatted_address']
       weatherResponse = WeatherService.get_current(lat_lng)
-      render json: weatherResponse
+      render json: {weather: weatherResponse, location: location}
     rescue => e
       render json: {error: "Unable to retrieve data on given location."}
     end
@@ -15,8 +16,9 @@ class WeatherController < ApplicationController
     geocodeResponse = GeocodeService.get_geocode(history_params[:address])
     begin
       lat_lng = geocodeResponse['results'][0]['geometry']['location']
+      location = geocodeResponse['results'][0]['formatted_address']
       weatherResponse = WeatherService.get_history(lat_lng, history_params[:time])
-      render json: weatherResponse
+      render json: {weather: weatherResponse, location: location}
     rescue => e
       render json: {error: "Unable to retrieve data on given location."}
     end

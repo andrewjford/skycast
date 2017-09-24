@@ -10,7 +10,17 @@ class App extends Component {
 
     this.state = {
       current: "",
+      location: "",
     }
+
+    this.handleCurrentFetch = this.handleCurrentFetch.bind(this);
+  }
+
+  handleCurrentFetch(json) {
+    this.setState({...this.state,
+      current: json.weather,
+      location: json.location
+    })
   }
 
   render() {
@@ -19,8 +29,8 @@ class App extends Component {
         <div className="App-header">
           <h2>Skycast</h2>
         </div>
-        <Search parentThis={this} state={this.state}/>
-        <CurrentWeather state={this.state.current}/>
+        <Search updateState={this.handleCurrentFetch} />
+        <CurrentWeather state={this.state}/>
       </div>
     );
   }
