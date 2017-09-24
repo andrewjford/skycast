@@ -30,7 +30,9 @@ class App extends Component {
           <h2>Skycast</h2>
         </div>
         <Search updateState={this.handleCurrentFetch} />
-        <CurrentWeather state={this.state}/>
+        <div className="chart">
+          <CurrentWeather state={this.state}/>
+        </div>
       </div>
     );
   }
