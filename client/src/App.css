@@ -1,21 +1,28 @@
-html {
-  background-color: #fbfbfb;
+:root {
   --main-color: #3c3c3c;
+  --alt-color: #455A64;
+  --background-color: #fbfbfb
+}
+
+html {
+  background-color: var(--background-color);
+}
+
+html, body, #root {
+  height: 100%;
 }
 
 .App {
   text-align: center;
-  color: #3c3c3c;
-  background-color: #fbfbfb;
+  color: var(--main-color);
+  min-height:  100%;
+  position: relative;
 }
 
 .center-search {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-.center-search > * {
   font-size: 1.75em;
   margin: 0.1em;
 }
@@ -27,18 +34,23 @@ html {
   margin: 0.1em;
 }
 
+.center-search input {
+  font-size: 1em;
+  margin: 0.1em;
+}
+
 .chart {
-  min-width: 300px;
   width: 70%;
   margin: auto;
   margin-top: -4em;
+  margin-bottom: 0.2em;
   display: flex;
 }
 
 .chart button {
   width: 5%;
   background-color: transparent;
-  color: #3c3c3c;
+  color: var(--main-color);
   font-size: 1.5em;
 }
 
@@ -66,10 +78,6 @@ html {
   text-decoration: underline;
 }
 
-.current-weather h3 {
-  /*margin-top: 0;*/
-}
-
 .horiz-flex {
   display: flex;
   flex-wrap: wrap;
@@ -85,6 +93,27 @@ html {
   margin: 0;
 }
 
+.horiz-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 1.5em;
+  margin: 0.1em;
+}
+
+.horiz-search button {
+  border-radius: 0.2em;
+  padding: 0.1em 0.5em;
+  font-size: 1em;
+  margin: 0.1em;
+}
+
+.horiz-search input {
+  font-size: 1em;
+  margin: 0.1em;
+}
+
 .info {
   display: flex;
   align-items: center;
@@ -93,6 +122,11 @@ html {
 
 .left-align {
   text-align: left;
+}
+
+.splash-margin {
+  margin-top: 15%;
+  margin-bottom: 1%;
 }
 
 .vert-flex {
@@ -113,12 +147,16 @@ button {
 footer {
   margin: 1em 0 0.2em 0;
   padding: 0.4em 0 0.2em 0;
-  border-top: 1px solid #3c3c3c;
+  border-top: 1px solid var(--main-color);
   font-size: 0.9em;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 1.2em;
 }
 
 footer a {
-  color: #3c3c3c;
+  color: var(--main-color);
   text-decoration: none;
 }
 
@@ -131,17 +169,31 @@ h1 {
   margin-bottom: 0.2em;
 }
 
+main {
+  height: 100%;
+  padding-bottom: 3em;
+}
+
 table {
   margin: auto;
   max-width: 80%;
-  min-width: 300px;
 }
 
 table, th, td {
-  border: 1px solid #3c3c3c;
+  border: 1px solid var(--main-color);
   border-collapse: collapse;
 }
 
 th, td {
   padding: 1em 0;
+}
+
+@media only screen and (max-width:480px) {
+  table {
+    min-width: 300px;
+  }
+
+  .chart {
+    min-width: 300px;
+  }
 }

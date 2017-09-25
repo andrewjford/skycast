@@ -1,6 +1,6 @@
 import React from 'react';
 import Skycons from 'react-skycons';
-import Moment from 'react-moment';
+import DetailedInfo from './DetailedInfo';
 
 class CurrentlyInfo extends React.Component {
   render() {
@@ -11,14 +11,6 @@ class CurrentlyInfo extends React.Component {
     const {temperature,
       apparentTemperature,
       } = this.props.state.weather.currently;
-    const {sunriseTime,
-      sunsetTime,
-      precipProbability,
-      temperatureMax,
-      temperatureMin,
-      uvIndex,
-      visibility
-      } = this.props.state.weather.daily.data[0]
 
     return <div className="current-info">
       <div>
@@ -32,15 +24,7 @@ class CurrentlyInfo extends React.Component {
       <div className="weather-icon">
         <Skycons color="#3c3c3c" icon={icon} autoplay={true}/>
       </div>
-      <ul>
-        <li>High: {Math.round(temperatureMax)}˚F</li>
-        <li>Low: {Math.round(temperatureMin)}˚F</li>
-        <li>Precipitation: {Math.round(precipProbability * 100)}%</li>
-        <li>UV Index: {uvIndex}</li>
-        <li>Visibility: {visibility}</li>
-        <li>Sunrise: <Moment unix format="h:mm a">{sunriseTime}</Moment></li>
-        <li>Sunset: <Moment unix format="h:mm a">{sunsetTime}</Moment></li>
-      </ul>
+      <DetailedInfo weather={this.props.state.weather} />
     </div>
   }
 }

@@ -3,15 +3,26 @@ import Moment from 'react-moment';
 import Skycons from 'react-skycons';
 
 class WeeklyTable extends React.Component {
+
+  constructor() {
+    super();
+
+    this.handleDayClick = this.handleDayClick.bind(this);
+  }
+
+  handleDayClick(event) {
+    this.props.fetchDated(parseInt(event.target.dateTime)/1000);
+  }
+
   render() {
     let days = null;
 
-    if(this.props.weather.daily){
+    if(this.props.weather.daily && this.props.weather.daily.data.length > 1){
       days = this.props.weather.daily.data.map((day, idx) => {
         let icon = day.icon.toUpperCase().replace(/-/g,"_");
 
         return <td key={idx}>
-          <strong><Moment unix format='dddd'>{day.time}</Moment></strong>
+          <a onClick={this.handleDayClick}><Moment unix format='dddd'>{day.time}</Moment></a>
           <div><Moment unix format='MM/DD/YYYY'>{day.time}</Moment></div>
           <div>
             <Skycons color="#3c3c3c" icon={icon} autoplay={false}/>

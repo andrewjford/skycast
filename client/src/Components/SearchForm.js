@@ -23,9 +23,9 @@ class SearchForm extends React.Component {
   }
 
   render() {
-    return <form onSubmit={this.handleSubmit} className="center-search">
+    return <form onSubmit={this.handleSubmit} className={this.props.classProp}>
       <label>
-        Enter a Location:
+        <span>Enter a Location: </span>
       </label>
       <input type="text" value={this.state.location} placeholder="... Maui"
         onChange={this.handleLocationChange}/>

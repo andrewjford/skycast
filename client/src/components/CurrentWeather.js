@@ -57,7 +57,7 @@ class CurrentWeather extends React.Component {
               </h2>
               <h3 className='vert-flex left-align'>
                 <FullDate date={this.props.state.weather.currently.time}
-                  time={this.props.state.weather.minutely}/>
+                  time={this.props.state.weather.hourly.data.length > 24}/>
                 {this.props.state.weather.hourly.summary}
               </h3>
             </div>
