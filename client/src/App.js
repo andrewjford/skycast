@@ -4,6 +4,7 @@ import './App.css';
 import Search from './components/Search';
 import CurrentWeather from './components/CurrentWeather';
 import WeeklyTable from './components/WeeklyTable';
+import Footer from './components/Footer';
 import seed from './seed';
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
         <Search updateState={this.handleCurrentFetch} />
         <CurrentWeather state={this.state}/>
         <WeeklyTable weather={this.state.weather}/>
+        <Footer />
       </div>
     );
   }
