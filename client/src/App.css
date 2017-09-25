@@ -1,5 +1,6 @@
 html {
   background-color: #fbfbfb;
+  --main-color: #3c3c3c;
 }
 
 .App {
@@ -28,9 +29,17 @@ html {
 
 .chart {
   min-width: 300px;
-  width: 60%;
+  width: 70%;
   margin: auto;
   margin-top: -4em;
+  display: flex;
+}
+
+.chart button {
+  width: 5%;
+  background-color: transparent;
+  color: #3c3c3c;
+  font-size: 1.5em;
 }
 
 .current-info {
@@ -51,6 +60,10 @@ html {
   list-style: none;
   padding-left: 0;
   width: 10em;
+}
+
+.current-weather a:hover {
+  text-decoration: underline;
 }
 
 .current-weather h3 {
@@ -101,6 +114,7 @@ footer {
   margin: 1em 0 0.2em 0;
   padding: 0.4em 0 0.2em 0;
   border-top: 1px solid #3c3c3c;
+  font-size: 0.9em;
 }
 
 footer a {

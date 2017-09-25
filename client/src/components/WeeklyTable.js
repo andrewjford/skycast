@@ -18,6 +18,7 @@ class WeeklyTable extends React.Component {
           </div>
           <div>High: {Math.round(day.temperatureHigh)}˚F</div>
           <div>Low: {Math.round(day.temperatureLow)}˚F</div>
+          <div>Precip: {Math.round(day.precipProbability * 100)}%</div>
         </td>
       })
     }

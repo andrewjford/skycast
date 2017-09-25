@@ -8,11 +8,8 @@ class SearchForm extends React.Component {
       location: "",
       date: ""
     }
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
-    this.handleDateChange = this.handleDateChange.bind(this);
-    this.handleHistorySubmit = this.handleHistorySubmit.bind(this);
   }
 
   handleLocationChange(event) {
@@ -25,17 +22,6 @@ class SearchForm extends React.Component {
     this.setState({location: ""});
   }
 
-  handleDateChange(event) {
-    this.setState({date: event.target.value});
-  }
-
-  handleHistorySubmit(event) {
-    event.preventDefault();
-    if(this.state.date !== ""){
-      this.props.handleHistorySubmit(this.state.location, this.state.date);
-    }
-  }
-
   render() {
     return <form onSubmit={this.handleSubmit} className="center-search">
       <label>
@@ -43,10 +29,8 @@ class SearchForm extends React.Component {
       </label>
       <input type="text" value={this.state.location} placeholder="... Maui"
         onChange={this.handleLocationChange}/>
-      <input type="date" value={this.state.date} onChange={this.handleDateChange}/>
       <div>
-        <button type="submit">Current</button>
-        <button onClick={this.handleHistorySubmit}>Historical</button>
+        <button type="submit">Forecast</button>
       </div>
     </form>
   }
