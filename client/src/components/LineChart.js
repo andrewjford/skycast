@@ -4,14 +4,13 @@ import { VictoryLine,
   VictoryChart,
   VictoryAxis,
   VictoryTheme,
-  VictoryLabel,
 } from 'victory';
 
 class LineChart extends React.Component {
   render() {
     return (
       <VictoryChart theme={VictoryTheme.material}
-        height={200}
+        height={175}
         >
         <VictoryAxis
           tickCount={8}
@@ -25,6 +24,9 @@ class LineChart extends React.Component {
             else if(hour === 12){
               return "12\nPM"
             }
+            else if(hour === 0){
+              return "12\nAM"
+            }
             else {
               return `${hour}\nAM`
             }
@@ -36,7 +38,7 @@ class LineChart extends React.Component {
           tickFormat={(x) => `${x}˚`}
         />
         <VictoryLine
-          data={this.props.state.current.hourly.data}
+          data={this.props.state.weather.hourly.data}
           x="time"
           y="temperature"
         />

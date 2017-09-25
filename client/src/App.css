@@ -27,6 +27,44 @@
 }
 
 .chart {
-  width: 80%;
+  min-width: 300px;
+  width: 60%;
   margin: auto;
+  margin-top: -1em;
+}
+
+.current-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.current-info h2 {
+  font-size: 3.6em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.current-info ul {
+  text-align: left;
+  list-style: none;
+  padding-left: 0;
+  width: 10em;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.vert-flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.weather-icon {
+  width: 16em;
 }

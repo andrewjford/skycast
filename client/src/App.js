@@ -9,7 +9,7 @@ class App extends Component {
     super();
 
     this.state = {
-      current: "",
+      weather: "",
       location: "",
     }
 
@@ -18,7 +18,7 @@ class App extends Component {
 
   handleCurrentFetch(json) {
     this.setState({...this.state,
-      current: json.weather,
+      weather: json.weather,
       location: json.location
     })
   }
@@ -27,12 +27,12 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Skycast</h2>
+          <h1>Skycast</h1>
         </div>
         <Search updateState={this.handleCurrentFetch} />
-        <div className="chart">
-          <CurrentWeather state={this.state}/>
-        </div>
+
+        <CurrentWeather state={this.state}/>
+
       </div>
     );
   }
