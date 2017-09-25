@@ -30,12 +30,12 @@ class CurrentlyInfo extends React.Component {
         </div>
       </div>
       <div className="weather-icon">
-        <Skycons color="black" icon={icon} autoplay={false}/>
+        <Skycons color="#3c3c3c" icon={icon} autoplay={true}/>
       </div>
       <ul>
         <li>High: {Math.round(temperatureMax)}˚F</li>
         <li>Low: {Math.round(temperatureMin)}˚F</li>
-        <li>Precipitation: {precipProbability * 100}%</li>
+        <li>Precipitation: {Math.round(precipProbability * 100)}%</li>
         <li>UV Index: {uvIndex}</li>
         <li>Visibility: {visibility}</li>
         <li>Sunrise: <Moment unix format="h:mm a">{sunriseTime}</Moment></li>

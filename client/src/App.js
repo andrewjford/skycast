@@ -3,6 +3,8 @@ import './App.css';
 
 import Search from './components/Search';
 import CurrentWeather from './components/CurrentWeather';
+import WeeklyTable from './components/WeeklyTable';
+import seed from './seed';
 
 class App extends Component {
   constructor(){
@@ -23,16 +25,17 @@ class App extends Component {
     })
   }
 
+  componentDidMount() {
+    this.setState(seed);
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h1>Skycast</h1>
-        </div>
+        <h1>Skycast</h1>
         <Search updateState={this.handleCurrentFetch} />
-
         <CurrentWeather state={this.state}/>
-
+        <WeeklyTable weather={this.state.weather}/>
       </div>
     );
   }

@@ -1,11 +1,11 @@
-.App {
-  text-align: center;
+html {
+  background-color: #fbfbfb;
 }
 
-.App-header {
-  padding: 20px;
-  color: black;
-  font-size: 2.5em;
+.App {
+  text-align: center;
+  color: #3c3c3c;
+  background-color: #fbfbfb;
 }
 
 .center-search {
@@ -30,7 +30,7 @@
   min-width: 300px;
   width: 60%;
   margin: auto;
-  margin-top: -1em;
+  margin-top: -4em;
 }
 
 .current-info {
@@ -53,10 +53,33 @@
   width: 10em;
 }
 
+.current-weather h3 {
+  /*margin-top: 0;*/
+}
+
+.horiz-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.horiz-flex * {
+  margin: 0.5em 2em 0.5em 2em;
+}
+
+.horiz-flex time {
+  margin: 0;
+}
+
 .info {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.left-align {
+  text-align: left;
 }
 
 .vert-flex {
@@ -67,4 +90,29 @@
 
 .weather-icon {
   width: 16em;
+}
+
+button {
+  color: #fff;
+  background-color: #545454;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+}
+
+table {
+  margin: auto;
+  max-width: 80%;
+  min-width: 300px;
+}
+
+table, th, td {
+  border: 1px solid #3c3c3c;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 1em 0;
 }

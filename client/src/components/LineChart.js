@@ -1,4 +1,5 @@
 import React from 'react';
+import momentjs from 'moment';
 
 import { VictoryLine,
   VictoryChart,
@@ -8,6 +9,7 @@ import { VictoryLine,
 
 class LineChart extends React.Component {
   render() {
+
     return (
       <VictoryChart theme={VictoryTheme.material}
         height={175}
@@ -15,21 +17,8 @@ class LineChart extends React.Component {
         <VictoryAxis
           tickCount={8}
           tickFormat={(x) => {
-            let date = new Date(x*1000);
-            let hour = date.getHours();
-            if(hour > 12){
-              hour -= 12;
-              return `${hour}\nPM`;
-            }
-            else if(hour === 12){
-              return "12\nPM"
-            }
-            else if(hour === 0){
-              return "12\nAM"
-            }
-            else {
-              return `${hour}\nAM`
-            }
+            let m = momentjs.unix(x);
+            return m.format("h[\n]a");
           }}
         />
         <VictoryAxis
