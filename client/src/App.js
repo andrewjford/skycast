@@ -8,7 +8,6 @@ import WeeklyTable from './components/WeeklyTable';
 import Footer from './components/Footer';
 import AppHeader from './components/AppHeader';
 import RecentSearches from './components/RecentSearches';
-import seed from './seed';
 
 class App extends Component {
   constructor(){
@@ -36,7 +35,6 @@ class App extends Component {
     this.setState({...this.state,
       recent: JSON.parse(localStorage.getItem('recent'))
     })
-    // this.setState(seed);
   }
 
   getRecentSearches() {

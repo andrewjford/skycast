@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchForm from './SearchForm';
-import { fetchCurrent, fetchHistory } from '../services/BackendService';
+import { fetchCurrent } from '../services/BackendService';
 
 
 class Search extends React.Component {
