@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchForm from './SearchForm';
+import SearchForm from './SearchForm.js';
 import { fetchHistory } from '../services/BackendService';
 
 class HistorySearch extends React.Component {
