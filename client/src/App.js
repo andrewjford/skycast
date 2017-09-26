@@ -7,6 +7,7 @@ import CurrentWeather from './components/CurrentWeather';
 import WeeklyTable from './components/WeeklyTable';
 import Footer from './components/Footer';
 import AppHeader from './components/AppHeader';
+import RecentSearches from './components/RecentSearches';
 import seed from './seed';
 
 class App extends Component {
@@ -16,10 +17,12 @@ class App extends Component {
     this.state = {
       weather: "",
       location: "",
+      recent: null
     }
 
     this.handleCurrentFetch = this.handleCurrentFetch.bind(this);
     this.fetchDated = this.fetchDated.bind(this);
+    this.getRecentSearches = this.getRecentSearches.bind(this);
   }
 
   handleCurrentFetch(json) {
@@ -30,7 +33,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState(seed);
+    this.setState({...this.state,
+      recent: JSON.parse(localStorage.getItem('recent'))
+    })
+    // this.setState(seed);
+  }
+
+  getRecentSearches() {
+    this.setState({...this.state,
+      recent: JSON.parse(localStorage.getItem('recent'))
+    })
   }
 
   fetchDated(date) {
@@ -64,7 +76,11 @@ class App extends Component {
         <AppHeader splash={!this.state.weather.daily} />
 
         <main>
-          <Search updateState={this.handleCurrentFetch} location={this.state.location} />
+          <Search updateState={this.handleCurrentFetch}
+            location={this.state.location}
+            updateRecent={this.getRecentSearches}
+          />
+          <RecentSearches recent={this.state.recent} />
           <CurrentWeather state={this.state} updateState={this.handleCurrentFetch}/>
           <WeeklyTable weather={this.state.weather} fetchDated={this.fetchDated}/>
         </main>

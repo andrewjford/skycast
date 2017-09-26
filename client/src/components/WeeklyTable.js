@@ -11,7 +11,7 @@ class WeeklyTable extends React.Component {
   }
 
   handleDayClick(event) {
-    this.props.fetchDated(parseInt(event.target.dateTime)/1000);
+    this.props.fetchDated(parseInt(event.target.dateTime, 10)/1000);
   }
 
   render() {

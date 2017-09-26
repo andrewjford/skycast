@@ -1,7 +1,6 @@
 import React from 'react';
 import LineChart from './LineChart';
 import CurrentlyInfo from './CurrentlyInfo';
-import Moment from 'react-moment';
 import { fetchCurrent, fetchHistory } from '../services/BackendService';
 import FullDate from './FullDate';
 

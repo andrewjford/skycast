@@ -30,7 +30,7 @@ class SearchForm extends React.Component {
       <input type="text" value={this.state.location} placeholder="... Maui"
         onChange={this.handleLocationChange}/>
       <div>
-        <button type="submit">Forecast</button>
+        <button type="submit">Find</button>
       </div>
     </form>
   }

@@ -124,6 +124,11 @@ html, body, #root {
   text-align: left;
 }
 
+.recentSearches ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 .splash-margin {
   margin-top: 15%;
   margin-bottom: 1%;

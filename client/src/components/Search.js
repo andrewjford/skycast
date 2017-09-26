@@ -8,14 +8,22 @@ class Search extends React.Component {
   getWeather = (address) => {
     fetchCurrent(address)
     .then(response => response.json())
-    .then(json => this.props.updateState(json))
-    .catch(error => console.log(error))
-  }
+    .then(json => {
+      this.props.updateState(json);
 
-  getHistory = (address, date) => {
-    fetchHistory(address, Date.parse(date)/1000)
-    .then(response => response.json())
-    .then(json => this.props.updateState(json))
+      // add to localStorage
+      if(localStorage.getItem('recent') === null){
+        localStorage.setItem('recent', JSON.stringify([json.location]));
+      }
+      else {
+        let array = JSON.parse(localStorage.getItem('recent'));
+        array.unshift(json.location);
+        if(array.length > 5){ array.pop() }
+        localStorage.setItem('recent', JSON.stringify(array));
+      }
+
+      this.props.updateRecent();
+    })
     .catch(error => console.log(error))
   }
 
@@ -23,7 +31,6 @@ class Search extends React.Component {
     if(this.props.location === ""){
       return <div>
         <SearchForm handleSubmit={this.getWeather}
-          handleHistorySubmit={this.getHistory}
           classProp={"center-search"}
         />
       </div>
@@ -31,7 +38,6 @@ class Search extends React.Component {
     else {
       return <div>
         <SearchForm handleSubmit={this.getWeather}
-          handleHistorySubmit={this.getHistory}
           classProp={"horiz-search"}
         />
       </div>
