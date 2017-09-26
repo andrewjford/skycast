@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchForm from './SearchForm.js';
+import SearchForm from './SearchForm';
 import { fetchCurrent } from '../services/BackendService';
 
 
