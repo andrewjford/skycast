@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-const API_URL = "http://localhost:3001";
+const API_URL = "https://skycast-rails.herokuapp.com";
 
 export function fetchCurrent(address) {
   return fetch(API_URL + "/current?address=" + address)
