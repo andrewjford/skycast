@@ -25,20 +25,6 @@ class Search extends React.Component {
         classProp={"horiz-search"}
       />
     </div>
-    if(this.props.location === ""){
-      return <div>
-        <SearchForm handleSubmit={this.getWeather}
-          classProp={"center-search"}
-        />
-      </div>
-    }
-    else {
-      return <div>
-        <SearchForm handleSubmit={this.getWeather}
-          classProp={"horiz-search"}
-        />
-      </div>
-    }
   }
 }
 
