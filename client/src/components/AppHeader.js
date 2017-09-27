@@ -2,7 +2,7 @@ import React from 'react';
 
 const AppHeader = (props) => {
   if(props.splash){
-    return <header className="splash-margin">
+    return <header>
       <h1>Skycast</h1>
     </header>
   }

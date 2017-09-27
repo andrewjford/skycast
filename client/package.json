@@ -11,6 +11,7 @@
     "react-moment": "^0.6.5",
     "react-scripts": "1.0.13",
     "react-skycons": "^0.3.0",
+    "react-spinkit": "^3.0.0",
     "victory": "^0.22.2"
   },
   "scripts": {

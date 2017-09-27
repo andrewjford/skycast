@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchForm from './SearchForm';
 import { fetchCurrent } from '../services/BackendService';
-
+import { setLocalStorage } from '../services/LocalStorage';
 
 class Search extends React.Component {
 
@@ -12,15 +12,7 @@ class Search extends React.Component {
       this.props.updateState(json);
 
       // add to localStorage
-      if(localStorage.getItem('recent') === null){
-        localStorage.setItem('recent', JSON.stringify([json.location]));
-      }
-      else {
-        let array = JSON.parse(localStorage.getItem('recent'));
-        array.unshift(json.location);
-        if(array.length > 5){ array.pop() }
-        localStorage.setItem('recent', JSON.stringify(array));
-      }
+      setLocalStorage(json);
 
       this.props.updateRecent();
     })
@@ -28,6 +20,11 @@ class Search extends React.Component {
   }
 
   render() {
+    return <div>
+      <SearchForm handleSubmit={this.getWeather}
+        classProp={"horiz-search"}
+      />
+    </div>
     if(this.props.location === ""){
       return <div>
         <SearchForm handleSubmit={this.getWeather}

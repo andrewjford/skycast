@@ -22,7 +22,9 @@ class WeeklyTable extends React.Component {
         let icon = day.icon.toUpperCase().replace(/-/g,"_");
 
         return <td key={idx}>
-          <a onClick={this.handleDayClick}><Moment unix format='dddd'>{day.time}</Moment></a>
+          <a onClick={this.handleDayClick} className="link">
+            <Moment unix format='dddd'>{day.time}</Moment>
+          </a>
           <div><Moment unix format='MM/DD/YYYY'>{day.time}</Moment></div>
           <div>
             <Skycons color="#3c3c3c" icon={icon} autoplay={false}/>

@@ -3,6 +3,7 @@ import LineChart from './LineChart';
 import CurrentlyInfo from './CurrentlyInfo';
 import { fetchCurrent, fetchHistory } from '../services/BackendService';
 import FullDate from './FullDate';
+import Loading from './Loading';
 
 class CurrentWeather extends React.Component {
 
@@ -45,7 +46,6 @@ class CurrentWeather extends React.Component {
   }
 
   render() {
-
     if(this.props.state.weather.daily){
       return (
         <div className="current-weather">
@@ -73,7 +73,7 @@ class CurrentWeather extends React.Component {
       )
     }
     else {
-      return null;
+      return <Loading />;
     }
   }
 }

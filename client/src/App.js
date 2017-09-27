@@ -8,6 +8,7 @@ import WeeklyTable from './components/WeeklyTable';
 import Footer from './components/Footer';
 import AppHeader from './components/AppHeader';
 import RecentSearches from './components/RecentSearches';
+import { setLocalStorage } from './services/LocalStorage';
 
 class App extends Component {
   constructor(){
@@ -16,12 +17,13 @@ class App extends Component {
     this.state = {
       weather: "",
       location: "",
-      recent: null
+      recent: JSON.parse(localStorage.getItem('recent'))
     }
 
     this.handleCurrentFetch = this.handleCurrentFetch.bind(this);
     this.fetchDated = this.fetchDated.bind(this);
     this.getRecentSearches = this.getRecentSearches.bind(this);
+    this.fetchLocation = this.fetchLocation.bind(this);
   }
 
   handleCurrentFetch(json) {
@@ -32,9 +34,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({...this.state,
-      recent: JSON.parse(localStorage.getItem('recent'))
-    })
+    if(this.state.recent && this.state.recent[0]){
+      this.fetchLocation(this.state.recent[0]);
+    }
+    else {
+      this.fetchLocation("Seattle, WA");
+    }
   }
 
   getRecentSearches() {
@@ -68,6 +73,21 @@ class App extends Component {
     }
   }
 
+  fetchLocation(location) {
+    fetchCurrent(location)
+    .then(response => response.json())
+    .then(json => {
+      setLocalStorage(json);
+      this.getRecentSearches();
+
+      this.setState({...this.state,
+        weather: json.weather,
+        location: json.location
+      })
+    })
+    .catch(error => console.log(error));
+  }
+
   render() {
     return (
       <div className="App">
@@ -78,7 +98,7 @@ class App extends Component {
             location={this.state.location}
             updateRecent={this.getRecentSearches}
           />
-          <RecentSearches recent={this.state.recent} />
+          <RecentSearches recent={this.state.recent} fetchLocation={this.fetchLocation}/>
           <CurrentWeather state={this.state} updateState={this.handleCurrentFetch}/>
           <WeeklyTable weather={this.state.weather} fetchDated={this.fetchDated}/>
         </main>
