@@ -34,6 +34,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // load initial display based on most recent, defaults to Seattle
     if(this.state.recent && this.state.recent[0]){
       this.fetchLocation(this.state.recent[0]);
     }
@@ -77,9 +78,13 @@ class App extends Component {
     fetchCurrent(location)
     .then(response => response.json())
     .then(json => {
+      // update local storage
       setLocalStorage(json);
+
+      // update state.recent
       this.getRecentSearches();
 
+      // update state weather/location
       this.setState({...this.state,
         weather: json.weather,
         location: json.location
@@ -94,12 +99,12 @@ class App extends Component {
         <AppHeader splash={!this.state.weather.daily} />
 
         <main>
-          <Search updateState={this.handleCurrentFetch}
-            location={this.state.location}
-            updateRecent={this.getRecentSearches}
-          />
+          <Search fetchCurrent={this.fetchLocation}/>
           <RecentSearches recent={this.state.recent} fetchLocation={this.fetchLocation}/>
-          <CurrentWeather state={this.state} updateState={this.handleCurrentFetch}/>
+          <CurrentWeather state={this.state}
+            updateState={this.handleCurrentFetch}
+            fetchDated={this.fetchDated}
+            fetchLocation={this.fetchLocation} />
           <WeeklyTable weather={this.state.weather} fetchDated={this.fetchDated}/>
         </main>
 

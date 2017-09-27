@@ -16,7 +16,6 @@ class WeeklyTable extends React.Component {
 
   render() {
     let days = null;
-
     if(this.props.weather.daily && this.props.weather.daily.data.length > 1){
       days = this.props.weather.daily.data.map((day, idx) => {
         let icon = day.icon.toUpperCase().replace(/-/g,"_");

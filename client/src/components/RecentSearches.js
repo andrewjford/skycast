@@ -4,7 +4,6 @@ class RecentSearches extends React.Component {
 
   constructor() {
     super();
-
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -13,11 +12,10 @@ class RecentSearches extends React.Component {
   }
 
   render() {
-    if(this.props.recent){
+    if(this.props.recent) {
       const array = this.props.recent.map((item, idx) => {
         return <li key={idx}><a onClick={this.handleClick}>{item}</a></li>
       })
-
 
       return <div className="recentSearches">
         <div>Recent Locations:</div>
@@ -26,6 +24,7 @@ class RecentSearches extends React.Component {
         </ul>
       </div>
     }
+
     else {
       return null;
     }

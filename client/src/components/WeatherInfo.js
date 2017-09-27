@@ -1,8 +1,9 @@
 import React from 'react';
 import Skycons from 'react-skycons';
 import DetailedInfo from './DetailedInfo';
+import CurrentTemp from './CurrentTemp';
 
-class CurrentlyInfo extends React.Component {
+class WeatherInfo extends React.Component {
   render() {
     // convert icon string to match with skycons library
     let icon = this.props.state.weather.currently.icon;
@@ -12,15 +13,8 @@ class CurrentlyInfo extends React.Component {
       apparentTemperature,
       } = this.props.state.weather.currently;
 
-    return <div className="current-info">
-      <div>
-        <h2>
-          {Math.round(temperature)}˚F
-        </h2>
-        <div>
-          Feels like : {Math.round(apparentTemperature)}˚F
-        </div>
-      </div>
+    return <div className="weather-info">
+      <CurrentTemp temperature={temperature} apparentTemperature={apparentTemperature} />
       <div className="weather-icon">
         <Skycons color="#3c3c3c" icon={icon} autoplay={true}/>
       </div>
@@ -29,4 +23,4 @@ class CurrentlyInfo extends React.Component {
   }
 }
 
-export default CurrentlyInfo;
+export default WeatherInfo;

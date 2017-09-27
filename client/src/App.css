@@ -58,26 +58,6 @@ html, body, #root {
   background-color: rgba(0,0,0, 0.1);
 }
 
-.current-info {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.current-info h2 {
-  font-size: 3.6em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.current-info ul {
-  text-align: left;
-  list-style: none;
-  padding-left: 0;
-  width: 10em;
-}
-
 .current-weather a:hover {
   text-decoration: underline;
 }
@@ -184,6 +164,26 @@ html, body, #root {
 
 .weather-icon {
   width: 16em;
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.weather-info h2 {
+  font-size: 3.6em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.weather-info ul {
+  text-align: left;
+  list-style: none;
+  padding-left: 0;
+  width: 10em;
 }
 
 button {
