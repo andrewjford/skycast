@@ -14,7 +14,11 @@ class RecentSearches extends React.Component {
   render() {
     if(this.props.recent) {
       const array = this.props.recent.map((item, idx) => {
-        return <li key={idx}><a onClick={this.handleClick}>{item}</a></li>
+        return <li key={idx}>
+          <a onClick={this.handleClick} href="" className="link">
+            {item}
+          </a>
+        </li>
       })
 
       return <div className="recentSearches">

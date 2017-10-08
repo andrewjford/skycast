@@ -108,6 +108,11 @@ html, body, #root {
   text-align: left;
 }
 
+.link {
+  color: var(--main-color);
+  text-decoration: none;
+}
+
 .link:hover {
   text-decoration: underline;
 }

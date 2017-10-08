@@ -96,7 +96,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AppHeader splash={!this.state.weather.daily} />
+        <AppHeader />
 
         <main>
           <Search fetchCurrent={this.fetchLocation}/>
