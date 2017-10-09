@@ -8,6 +8,7 @@ class RecentSearches extends React.Component {
   }
 
   handleClick(event) {
+    event.preventDefault();
     this.props.fetchLocation(event.target.innerHTML);
   }
 

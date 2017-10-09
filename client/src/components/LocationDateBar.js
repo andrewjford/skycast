@@ -9,14 +9,17 @@ class LocationDateBar extends React.Component {
     this.handleLocationClick = this.handleLocationClick.bind(this);
   }
 
-  handleLocationClick() {
+  handleLocationClick(event) {
+    event.preventDefault();
     this.props.fetchCurrent(this.props.state.location);
   }
 
   render() {
     return <div className='horiz-flex'>
         <h2 className='left-align'>
-          <a onClick={this.handleLocationClick}>{this.props.state.location}</a>
+          <a onClick={this.handleLocationClick} href="" className="link">
+            {this.props.state.location}
+          </a>
         </h2>
         <h3 className='vert-flex left-align'>
           <FullDate date={this.props.state.weather.currently.time}

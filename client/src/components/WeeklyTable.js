@@ -11,7 +11,9 @@ class WeeklyTable extends React.Component {
   }
 
   handleDayClick(event) {
-    this.props.fetchDated(parseInt(event.target.dateTime, 10)/1000);
+    event.preventDefault();
+    let time = event.target.getAttribute("datetime");
+    this.props.fetchDated(parseInt(time, 10)/1000);
   }
 
   render() {
@@ -21,7 +23,7 @@ class WeeklyTable extends React.Component {
         let icon = day.icon.toUpperCase().replace(/-/g,"_");
 
         return <td key={idx}>
-          <a onClick={this.handleDayClick} className="link">
+          <a onClick={this.handleDayClick} href="" className="link">
             <Moment unix format='dddd'>{day.time}</Moment>
           </a>
           <div><Moment unix format='MM/DD/YYYY'>{day.time}</Moment></div>
